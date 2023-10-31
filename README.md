@@ -22,3 +22,5 @@ finger.go:
 - [ ] add predecessor to populateKeys
 - [ ] API-fy n.findSuccessor(k)
 - [ ] integrate this with sean's grpc code
+- [ ] prettify the output on the console
+- [ ] add more comments to the functions
