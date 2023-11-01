@@ -6,10 +6,11 @@ import (
 )
 
 type Node struct {
-	id        int
-	fTable    []*Finger
-	keys      []int
-	successor *Node
+	id          int
+	fTable      []*Finger
+	keys        []int
+	successor   *Node
+	predecessor *Node
 }
 
 type Finger struct {

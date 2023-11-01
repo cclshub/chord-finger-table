@@ -42,17 +42,17 @@ we use the populateKeys fn to populate the keys slice for each Node
 */
 func (n *Node) populateKeys() {
 	myId := n.id
-	successorId := n.successor.id
-	if myId < successorId {
-		for i := myId + 1; i <= successorId; i++ {
-			n.successor.keys = append(n.successor.keys, i)
+	predecessorID := n.predecessor.id
+	if myId > predecessorID {
+		for i := predecessorID + 1; i <= myId; i++ {
+			n.keys = append(n.keys, i)
 		}
 	} else {
-		for i := 0; i <= successorId; i++ {
-			n.successor.keys = append(n.successor.keys, i)
+		for i := 0; i <= myId; i++ {
+			n.keys = append(n.keys, i)
 		}
-		for i := myId + 1; i <= int(math.Pow(2, float64(m))); i++ {
-			n.successor.keys = append(n.successor.keys, i)
+		for i := predecessorID + 1; i <= int(math.Pow(2, float64(m))); i++ {
+			n.keys = append(n.keys, i)
 		}
 	}
 }

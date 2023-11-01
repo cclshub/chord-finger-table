@@ -17,7 +17,7 @@ functions:
 
 #### Things to implement
 - [ ] initNode in a distributed way
-- [ ] add predecessor to populateKeys
+- [x] add predecessor to populateKeys
 - [ ] API-fy n.findSuccessor(k)
 - [ ] integrate this with sean's grpc code
 - [ ] prettify the output on the console
