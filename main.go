@@ -23,6 +23,12 @@ func initNodes() {
 	Node4.successor = Node5
 	Node5.successor = Node1
 
+	Node1.predecessor = Node5
+	Node2.predecessor = Node1
+	Node3.predecessor = Node2
+	Node4.predecessor = Node3
+	Node5.predecessor = Node4
+
 	nodes = append(nodes, Node1, Node2, Node3, Node4, Node5)
 
 	// populate keys
@@ -74,13 +80,20 @@ func (n *Node) populatefTable() {
 
 func main() {
 	initNodes()
-	// for _, node := range nodes {
-	// 	// fmt.Printf("The newly populated node is: %s \n", node.fTable)
+
+	// current keyspace is 0-64 since we are only dealing with 6-bit int keys.
+	// pass a key and get the node in which it is stored in
+
+	// SIMPLE TEST BY ITERATING THROUGH EVERYTHING
+	// for i := 0; i < 65; i++ {
+	// 	for j := 0; j < 5; j++ {
+	// 		owner := nodes[j].findSuccessor(i)
+	// 		fmt.Printf("owner of %d is: %d \n", i, owner.id)
+	// 	}
 	// }
 
-	// time.Sleep(1 * time.Second)
-
-	// pass a key and get the node in which it is stored in
-	ownerof64 := nodes[3].findSuccessor(64)
-	fmt.Printf("ownerof21 is: %s", ownerof64)
+	k := 0
+	n := 4
+	owner := nodes[n].findSuccessor(k)
+	fmt.Printf("owner of %d is: %d \n", k, owner.id)
 }

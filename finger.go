@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -38,11 +37,11 @@ func (n *Node) findSuccessor(k int) *Node {
 	}
 
 	if k > n.id && k <= n.successor.id {
-		fmt.Println("inside if of findSuccessor")
+		// fmt.Println("inside if of findSuccessor")
 		return n.successor
 	}
 	//  else
-	fmt.Println("else of findSuccessor")
+	// fmt.Println("else of findSuccessor")
 	next_node := n.closestPrecedingNode(k)
 
 	for _, key := range next_node.keys {
@@ -52,7 +51,7 @@ func (n *Node) findSuccessor(k int) *Node {
 	}
 
 	// time.Sleep(1 * time.Second)
-	fmt.Printf("next_node is: %v \n", next_node)
+	// fmt.Printf("next_node is: %v \n", next_node)
 	return next_node.findSuccessor(k)
 }
 
@@ -61,9 +60,14 @@ func (n *Node) closestPrecedingNode(k int) *Node {
 	// fmt.Printf("len(n.fTable): %d\n", len(n.fTable))
 
 	for i := m - 1; i >= 0; i-- {
-		if n.id < n.fTable[i].key && n.fTable[i].key < k {
+		// val := n.fTable[i].key
+		// if n.id < n.fTable[i].key {
+		// 	val = n.fTable[i].key + 64
+		// }
+		// if n.id < n.fTable[i].key &&
+		if n.fTable[i].key < k {
 			return n.fTable[i].node
 		}
 	}
-	return n
+	return n.fTable[m-1].node
 }
