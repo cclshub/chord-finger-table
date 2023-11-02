@@ -85,15 +85,15 @@ func main() {
 	// pass a key and get the node in which it is stored in
 
 	// SIMPLE TEST BY ITERATING THROUGH EVERYTHING
-	// for i := 0; i < 65; i++ {
-	// 	for j := 0; j < 5; j++ {
-	// 		owner := nodes[j].findSuccessor(i)
-	// 		fmt.Printf("owner of %d is: %d \n", i, owner.id)
-	// 	}
-	// }
+	for i := 0; i < int(math.Pow(float64(2), float64(m)))+1; i++ {
+		for j := 0; j < 5; j++ {
+			owner := nodes[j].findSuccessor(i)
+			fmt.Printf("owner of %d is: %d \n", i, owner.id)
+		}
+	}
 
-	k := 0
-	n := 4
-	owner := nodes[n].findSuccessor(k)
-	fmt.Printf("owner of %d is: %d \n", k, owner.id)
+	// k := 0
+	// n := 4
+	// owner := nodes[n].findSuccessor(k)
+	// fmt.Printf("owner of %d is: %d \n", k, owner.id)
 }
